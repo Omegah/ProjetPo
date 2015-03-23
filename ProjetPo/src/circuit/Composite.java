@@ -1,8 +1,8 @@
 package circuit;
 
-public class Circuit {
+public class Composite {
 
-	public Circuit() {
+	public Composite() {
 		// TODO Auto-generated constructor stub
 	}
 
