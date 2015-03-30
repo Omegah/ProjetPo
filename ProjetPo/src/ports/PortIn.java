@@ -9,7 +9,10 @@ public class PortIn extends Port implements IPortIn{
 	@Override
 	public Integer nbconnection() {
 		// TODO Auto-generated method stub
-		return null;
+		if(this.getConnect()==true)
+			return 1;
+		else
+			return 0;
 	}
 
 }

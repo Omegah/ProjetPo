@@ -8,8 +8,10 @@ public class Et extends ComposantElementaire {
 	private PortIn portInDeux;
 	private PortOut portOut;
 	
-	public Et() {
-		// TODO Auto-generated constructor stub
+	public Et(int idComp) {
+		portInUn= new PortIn(idComp,1);
+		portInDeux= new PortIn(idComp,2);
+		portOut = new PortOut(idComp,3);
 	}
 	
 	public void fonction() {
@@ -18,6 +20,5 @@ public class Et extends ComposantElementaire {
 		else
 			portOut.setValue(false);	
 	}
-	
-	
+		
 }
