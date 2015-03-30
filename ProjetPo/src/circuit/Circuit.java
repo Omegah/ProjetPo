@@ -40,10 +40,10 @@ public class Circuit {
 			System.out.println("-> Les deux ports appartiennent au même composant !");
 			return;
 		}
-		if(p1 instanceof PortIn) {
+		if(p1 instanceof PortIn && p1.getConnect() == false) {
 			connexions.add(new Connexion((PortIn)p1,(PortOut)p2));
 		}
-		else {
+		if(p2 instanceof PortIn && p2.getConnect() == false){
 			connexions.add(new Connexion((PortIn)p2,(PortOut)p1));
 		}
 	}
