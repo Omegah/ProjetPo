@@ -10,31 +10,46 @@ import ports.PortOut;
 public class Circuit {
 	
 	private LinkedList<Composant> composants;
+	private LinkedList<Connexion> connexions;
 	
 	public Circuit() {
 		composants = new LinkedList<Composant>();
+		connexions = new LinkedList<Connexion>();
 	}
 	
 	public void ajouterComposant(Composant comp) {
 		composants.add(comp);
 	}
 	
-	public void connecter(Composant c1, Port p1, Composant c2, Port p2) {
+	public void connecter(Port p1, Port p2) {
 		if(p1 instanceof PortIn && p2 instanceof PortIn) {
-			//ERROR
+			// ERROR
 			System.out.println("Impossible de connecter les deux ports");
 			System.out.println("-> Deux entrées !");
+			return;
 		}
 		if(p1 instanceof PortOut && p2 instanceof PortOut) {
-			//ERROR
+			// ERROR
 			System.out.println("Impossible de connecter les deux ports");
 			System.out.println("-> Deux sorties !");
+			return;
 		}
-		if(p1 instanceof PortIn && p2 instanceof PortOut) {
-			p1 = p2;
+		if(p1.getIdComposant() == p2.getIdComposant()) {
+			// ERROR
+			System.out.println("Impossible de connecter les deux ports");
+			System.out.println("-> Les deux ports appartiennent au même composant !");
+			return;
 		}
-		if(p1 instanceof PortOut && p2 instanceof PortIn) {
-			p2 = p1;
+		if(p1 instanceof PortIn && p1.getConnect() == false) {
+			connexions.add(new Connexion((PortIn)p1,(PortOut)p2));
 		}
+		if(p2 instanceof PortIn && p2.getConnect() == false){
+			connexions.add(new Connexion((PortIn)p2,(PortOut)p1));
+		}
+	}
+	
+	public void resetCircuit(){
+		composants.clear();
+		connexions.clear();
 	}
 }
