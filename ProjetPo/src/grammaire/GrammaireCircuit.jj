@@ -1,0 +1,53 @@
+PARSER_BEGIN(GrammaireBoole)import java.io.File;import java.io.FileInputStream;
+public class GrammaireBoole{  public static void main(String args []) throws ParseException  {
+    try
+    {
+      File f = new File("test.txt");
+      if(f == null || !f.exists())      {
+        System.out.println("Erreur : Fichier incorrect !");
+        return;      }
+      GrammaireBoole parser = new GrammaireBoole(new FileInputStream(f));
+      parser.Def_Circuit();
+      System.out.println("Analyse terminee avec succes !");
+	}
+	catch (Exception e)
+	{
+	  System.out.println("Circuit non reconnu !");
+	  System.out.println(e.getMessage());
+	  GrammaireBoole.ReInit(System.in);
+	}    catch (Error e)    {      System.out.println("Erreur d'execution");      System.out.println(e.getMessage());      return;    }  } }PARSER_END(GrammaireBoole)SKIP :{  " "| "\r"| "\t"| "\n"}TOKEN :{  < NUM : (< DIGIT >)+ >| < ID : < LETTER > (< DIGIT > | < LETTER >)+>
+| < LETTER : ["a"-"z","A"-"Z"] >
+| < DIGIT : ["0" - "9"] >}
+void Def_Circuit() :
+{}{ < ID > Circuit()
+}
+
+void Circuit() :
+{}
+{
+  (Composant())+}
+
+void Composant() :
+{}
+{
+  "<" < NUM > "|" < ID > Port() [Etat()] ["->" Connexion_Interne() ("," Connexion_Interne())*] ">"}
+
+void Etat() :
+{}
+{
+  "{" < ID > "}"}
+
+void Port() :
+{}
+{
+  "(" < NUM > "," < NUM > ")"}
+
+void Connexion_Interne() :
+{}
+{
+  "#" < NUM > "(" Connexion() ("," Connexion())* ")"}
+
+void Connexion() :
+{}
+{
+  < NUM > "#" < NUM >}
