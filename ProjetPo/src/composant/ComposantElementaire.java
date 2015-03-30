@@ -6,4 +6,8 @@ public abstract class ComposantElementaire implements Composant{
 		// TODO Auto-generated constructor stub
 	}
 
+	public void fonction() {
+	}
+	
+	
 }

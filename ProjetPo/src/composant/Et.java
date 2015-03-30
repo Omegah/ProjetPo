@@ -11,5 +11,13 @@ public class Et extends ComposantElementaire {
 	public Et() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public void fonction() {
+		if((portInUn.getValue()==true) && (portInDeux.getValue()==true))
+			portOut.setValue(true);
+		else
+			portOut.setValue(false);	
+	}
+	
+	
 }
