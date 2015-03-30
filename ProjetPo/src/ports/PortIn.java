@@ -1,6 +1,6 @@
 package ports;
 
-public class PortIn extends Port implements IPortIn{
+public class PortIn extends Port {
 
 	public PortIn(int idPort) {
 		super(idPort);

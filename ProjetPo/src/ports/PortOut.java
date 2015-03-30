@@ -2,7 +2,7 @@ package ports;
 
 import java.util.LinkedList;
 
-public class PortOut extends Port implements IPortOut{
+public class PortOut extends Port {
 	
 	public LinkedList<Port> ListOut ;
 
