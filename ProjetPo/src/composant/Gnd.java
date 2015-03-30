@@ -6,8 +6,8 @@ public class Gnd extends ComposantElementaire{
 
 	private PortOut portOut;
 	
-	public Gnd(int idComp) {
-		super(0,1,idComp);	
+	public Gnd() {
+		super(0,1);	
 	}
 	
 	public void fonction() {
