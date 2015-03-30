@@ -19,7 +19,6 @@ public class Circuit {
 	
 	public void ajouterComposant(Composant comp) {
 		composants.add(comp);
-		System.out.println("Composant " + comp.getClass() + " créé !" );
 	}
 	
 	public void connecter(Port p1, Port p2) {

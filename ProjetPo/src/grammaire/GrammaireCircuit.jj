@@ -30,17 +30,17 @@ void Circuit() :
 void Composant(Circuit circuit) :
 {	Composant comp;	Token x,y;}
 {
-  "<" x = < NUM > "|" y = < ID > Port() [Etat()] ["->" Connexion_Interne() ("," Connexion_Interne())*] ">"  {    System.out.print("La valeur de x : "+x);    System.out.println(" - La valeur de y : "+y);    circuit.ajouterComposant(GrammaireBoole.genererComposant(y.toString(),x.toString()));  }}
+  "<" x = < NUM > "|" y = < ID >  {    comp = GrammaireBoole.genererComposant(y.toString(),x.toString());    circuit.ajouterComposant(comp);  }  Port(comp) [Etat()] ["->" Connexion_Interne() ("," Connexion_Interne())*] ">"}
 
 void Etat() :
 {}
 {
   "{" < ID > "}"}
 
-void Port() :
-{}
+void Port(Composant comp) :
+{Token x,y;}
 {
-  "(" < NUM > "," < NUM > ")"}
+  "("x= < NUM > "," y= < NUM > ")"  {    if(Integer.parseInt(x.toString())!=((ComposantElementaire)comp).nbEntrees() || Integer.parseInt(y.toString())!=((ComposantElementaire)comp).nbSorties()) exit(-1);  }}
 
 void Connexion_Interne() :
 {}
