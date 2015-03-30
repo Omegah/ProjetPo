@@ -1,9 +1,17 @@
 package composant;
 
+import ports.PortOut;
+
 public class Gnd extends ComposantElementaire{
 
-	public Gnd() {
-		// TODO Auto-generated constructor stub
+	private PortOut portOut;
+	
+	public Gnd(int idComp) {
+		super(0,1,idComp);	
 	}
-
+	
+	public void fonction() {
+		this.Pout[1].setValue(false);
+	}
+	
 }

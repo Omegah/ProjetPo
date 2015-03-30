@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class PortOut extends Port implements IPortOut{
 	
-	LinkedList<Port> ListOut ;
+	public LinkedList<Port> ListOut ;
 
 	public PortOut(int idComposant,int idPort) {
 		super(idComposant, idPort);

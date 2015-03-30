@@ -9,16 +9,14 @@ public class Et extends ComposantElementaire {
 	private PortOut portOut;
 	
 	public Et(int idComp) {
-		portInUn= new PortIn(idComp,1);
-		portInDeux= new PortIn(idComp,2);
-		portOut = new PortOut(idComp,3);
+		super(2,1,idComp);
 	}
 	
 	public void fonction() {
-		if((portInUn.getValue()==true) && (portInDeux.getValue()==true))
-			portOut.setValue(true);
+		if((this.getPin()[1].getValue()==true) && (this.getPin()[2].getValue()==true))
+			this.getPout()[1].setValue(true);
 		else
-			portOut.setValue(false);	
+			this.getPout()[1].setValue(false);	
 	}
 		
 }

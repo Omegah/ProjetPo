@@ -2,8 +2,9 @@ package composant;
 
 public class Non extends ComposantElementaire{
 
-	public Non() {
-		// TODO Auto-generated constructor stub
+	public Non(int idComp) {
+		super(1,1,idComp);	
 	}
+
 
 }
