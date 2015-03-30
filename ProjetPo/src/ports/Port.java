@@ -7,9 +7,8 @@ public abstract class Port implements IPort{
 	protected Boolean connect;
 	protected Boolean value;
 	
-	public Port(int idComp,int idPort) {
-		this.idPort = idPort;
-		this.idComposant=idComp;
+	public Port(int idPort) {
+		this.idPort = idPort;	
 		connect=false;
 	}
 	

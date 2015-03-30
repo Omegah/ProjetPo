@@ -5,20 +5,18 @@ import ports.PortOut;
 
 public abstract class ComposantElementaire implements Composant{
 	
-	protected int idComposant;
 	protected PortIn[] Pin;
 	protected PortOut[] Pout;
 
-	public ComposantElementaire(int Nentrees,int Nsorties,int idComp) {
+	public ComposantElementaire(int Nentrees,int Nsorties) {
 		Pin= new PortIn[Nentrees+1];
 		Pout= new PortOut[Nsorties+1];
-		this.idComposant=idComp;
 
 		for (int i=1;i<=Nentrees;i++)
-			Pin[i]= new PortIn(idComp,i);
+			Pin[i]= new PortIn(i);
 		
 		for (int i=1;i<=Nsorties;i++)
-			Pout[i]= new PortOut(idComp,i);
+			Pout[i]= new PortOut(i);
 
 	}
 
@@ -31,10 +29,6 @@ public abstract class ComposantElementaire implements Composant{
 	}
 	
 	public void fonction() {
-	}
-
-	public int getIdComposant() {
-		return idComposant;
 	}
 
 	public PortIn[] getPin() {

@@ -8,8 +8,8 @@ public class Et extends ComposantElementaire {
 	private PortIn portInDeux;
 	private PortOut portOut;
 	
-	public Et(int idComp) {
-		super(2,1,idComp);
+	public Et() {
+		super(2,1);
 	}
 	
 	public void fonction() {

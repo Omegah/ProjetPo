@@ -2,8 +2,8 @@ package composant;
 
 public class Ou extends ComposantElementaire{
 
-	public Ou(int idComp) {
-		super(2,1,idComp);
+	public Ou() {
+		super(2,1);
 	}
 	
 	public void fonction() {

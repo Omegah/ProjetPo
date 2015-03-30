@@ -2,8 +2,8 @@ package ports;
 
 public class PortIn extends Port implements IPortIn{
 
-	public PortIn(int idComposant,int idPort) {
-		super(idComposant, idPort);
+	public PortIn(int idPort) {
+		super(idPort);
 	}
 
 	@Override

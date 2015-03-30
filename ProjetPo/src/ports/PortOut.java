@@ -6,8 +6,8 @@ public class PortOut extends Port implements IPortOut{
 	
 	public LinkedList<Port> ListOut ;
 
-	public PortOut(int idComposant,int idPort) {
-		super(idComposant, idPort);
+	public PortOut(int idPort) {
+		super( idPort);
 		ListOut = new LinkedList<Port>();
 	}
 

@@ -4,8 +4,8 @@ public class Itr extends ComposantElementaire{
 	
 	protected boolean etat = false;
 
-	public Itr(int idComp) {
-		super(0,1,idComp);
+	public Itr() {
+		super(0,1);
 	}
 
 	public void fonction() {
