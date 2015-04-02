@@ -55,7 +55,9 @@ public class Circuit {
 		for(Entry<Integer, Composant> entry : composants.entrySet()) {
 		    Integer id = entry.getKey();
 		    Composant comp = entry.getValue();
+		    System.out.println(id + " " + ((ComposantElementaire) comp).getPout()[1].getValue());
 		    ((ComposantElementaire) comp).fonction();
+		    System.out.println(id + " " + ((ComposantElementaire) comp).getPout()[1].getValue());
 		    if(comp instanceof composant.Led) {
 		    	System.out.print("La led " + id + " est ");
 		    	((composant.Led)comp).affichageEtat();

@@ -10,6 +10,7 @@ public abstract class Port implements IPort{
 	public Port(int idPort) {
 		this.idPort = idPort;	
 		connect=false;
+		value=false;
 	}
 	
 	public abstract Integer nbconnection();
