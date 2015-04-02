@@ -1,24 +1,28 @@
 package circuit;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map.Entry;
 
 import composant.Composant;
+import composant.ComposantElementaire;
 import ports.Port;
 import ports.PortIn;
 import ports.PortOut;
 
 public class Circuit {
 	
-	private LinkedList<Composant> composants;
-	private LinkedList<Connexion> connexions;
+	private HashMap<Integer,Composant> composants;
+	
+	private int numeroComposant;
 	
 	public Circuit() {
-		composants = new LinkedList<Composant>();
-		connexions = new LinkedList<Connexion>();
+		composants = new HashMap<Integer,Composant>();
+		numeroComposant = 1;
 	}
 	
 	public void ajouterComposant(Composant comp) {
-		composants.add(comp);
+		composants.put(numeroComposant++, comp);
 	}
 	
 	public void connecter(Port p1, Port p2) {
@@ -34,22 +38,28 @@ public class Circuit {
 			System.out.println("-> Deux sorties !");
 			return;
 		}
-		if(p1.getIdComposant() == p2.getIdComposant()) {
-			// ERROR
-			System.out.println("Impossible de connecter les deux ports");
-			System.out.println("-> Les deux ports appartiennent au même composant !");
-			return;
+		if(p1 instanceof PortOut && p1.getConnect() == false) {
+			p2 = p1;
 		}
-		if(p1 instanceof PortIn && p1.getConnect() == false) {
-			connexions.add(new Connexion((PortIn)p1,(PortOut)p2));
-		}
-		if(p2 instanceof PortIn && p2.getConnect() == false){
-			connexions.add(new Connexion((PortIn)p2,(PortOut)p1));
+		if(p2 instanceof PortOut && p2.getConnect() == false){
+			p1 = p2;
 		}
 	}
 	
 	public void resetCircuit(){
 		composants.clear();
-		connexions.clear();
+		numeroComposant = 1;
+	}
+	
+	public void calcul(){
+		for(Entry<Integer, Composant> entry : composants.entrySet()) {
+		    Integer id = entry.getKey();
+		    Composant comp = entry.getValue();
+		    ((ComposantElementaire) comp).fonction();
+		    if(comp instanceof composant.Led) {
+		    	System.out.print("La led " + id + " est ");
+		    	((composant.Led)comp).affichageEtat();
+		    }
+		}
 	}
 }

@@ -40,7 +40,7 @@ void Etat() :
 void Port(Composant comp) :
 {Token x,y;}
 {
-  "("x= < NUM > "," y= < NUM > ")"  {    if(Integer.parseInt(x.toString())!=((ComposantElementaire)comp).nbEntrees() || Integer.parseInt(y.toString())!=((ComposantElementaire)comp).nbSorties()) exit(-1);  }}
+  "("x= < NUM > "," y= < NUM > ")"  {    if(Integer.parseInt(x.toString())!=((ComposantElementaire)comp).nbEntrees() || Integer.parseInt(y.toString())!=((ComposantElementaire)comp).nbSorties())    {      throw new ParseException("Exception : Erreur Port - " + comp.getClass());    }  }}
 
 void Connexion_Interne() :
 {}
