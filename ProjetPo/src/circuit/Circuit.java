@@ -12,6 +12,7 @@ import ports.PortOut;
 
 public class Circuit {
 	
+	/* Association d'un composant avec un numéro dans le circuit */
 	private HashMap<Integer,Composant> composants;
 	
 	private int numeroComposant;
