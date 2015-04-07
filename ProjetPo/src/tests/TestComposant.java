@@ -25,8 +25,6 @@ public class TestComposant {
 		circuit.ajouterComposant(o1);
 		circuit.ajouterComposant(l1);
 		
-		(Port)(e1.getPin()[1]) = (Port)(g1.getPout()[1]);
-		
 		/*g1.fonction();
 		circuit.connecter(g1.getPout()[1], e1.getPin()[1]);
 		v1.fonction();
